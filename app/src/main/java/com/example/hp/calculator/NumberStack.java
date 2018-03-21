@@ -9,7 +9,7 @@ public class NumberStack {
     private double num[];
     private int maxLength;
     private int top;
-    private final int DEFAULT_LENGTH=1000;					//默认长度
+    private final int DEFAULT_LENGTH=50;					    //默认长度
 
     public NumberStack(){
         this.num=new double[DEFAULT_LENGTH];
@@ -23,7 +23,7 @@ public class NumberStack {
         this.top=-1;
     }
 
-    public boolean push(double Num){						//判断是否成功将元素压入栈
+    public boolean push(double Num){						    //判断是否成功将元素压入栈
         if(top==maxLength-1){
             System.out.println("The stack is full.");
             return false;
@@ -33,7 +33,7 @@ public class NumberStack {
         return true;
     }
 
-    public boolean isEmpty(){								//判断栈是否为空
+    public boolean isEmpty(){								    //判断栈是否为空
         if(top==-1)
             return true;
         else
@@ -47,7 +47,7 @@ public class NumberStack {
         return 0;
     }
 
-    public boolean pop(){									//判断是否成功出栈
+    public boolean pop(){									    //判断是否成功出栈
         if(this.isEmpty())
             return false;
         this.num[this.top]=0;
@@ -55,7 +55,7 @@ public class NumberStack {
         return true;
     }
 
-    public boolean destroy(){								//判断是否销毁栈
+    public boolean destroy(){								    //判断是否销毁栈
         if(this.isEmpty())
             return false;
         this.maxLength=0;

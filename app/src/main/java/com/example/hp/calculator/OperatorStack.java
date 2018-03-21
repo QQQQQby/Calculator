@@ -8,7 +8,7 @@ public class OperatorStack{
     private char[]oper;
     private int maxLength;
     private int top;
-    private final int DEFAULT_LENGTH=1000;				//默认长度
+    private final int DEFAULT_LENGTH=50;				        //默认长度
 
     public OperatorStack() {
         this.oper=new char[DEFAULT_LENGTH];
@@ -33,7 +33,7 @@ public class OperatorStack{
         return true;
     }
 
-    public boolean isEmpty(){								//判断栈是否为空
+    public boolean isEmpty(){								    //判断栈是否为空
         if(top==-1){
             return true;
         }
@@ -41,13 +41,13 @@ public class OperatorStack{
             return false;
     }
 
-    public char getTop(){									//取栈顶元素
+    public char getTop(){									    //取栈顶元素
         if(!this.isEmpty())
             return this.oper[this.top];
         return '\0';
     }
 
-    public boolean pop(){									//判断是否成功出栈
+    public boolean pop(){									    //判断是否成功出栈
         if(this.isEmpty())
             return false;
         this.oper[top]='\0';
@@ -55,7 +55,7 @@ public class OperatorStack{
         return true;
     }
 
-    public boolean destroy(){								//判断是否销毁栈
+    public boolean destroy(){								    //判断是否销毁栈
         if(this.isEmpty())
             return false;
         this.maxLength=0;
