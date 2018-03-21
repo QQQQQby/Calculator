@@ -3,15 +3,20 @@ package com.example.hp.calculator;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button k0,k1,k2,k3,k4,k5,k6,k7,k8,k9,kPl,kMi,kMu,kDi,kPo,kEq;
+    ImageButton deleteButton,clearButton;
     private NumberStack numberStack=new NumberStack();
     private OperatorStack operatorStack=new OperatorStack();
     private TextView ans;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         kDi=findViewById(R.id.keyDivide);
         kPo=findViewById(R.id.keyPoint);
         kEq=findViewById(R.id.keyEqual);
+        deleteButton=findViewById(R.id.deleteButton);
+        clearButton=findViewById(R.id.clearButton);
         ans=findViewById(R.id.displayExpression);
 
         k0.setOnClickListener(this);
@@ -50,6 +57,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         kDi.setOnClickListener(this);
         kPo.setOnClickListener(this);
         kEq.setOnClickListener(this);
+        deleteButton.setOnClickListener(this);
+        clearButton.setOnClickListener(this);
+
         ActionBar actionBar=getSupportActionBar();
         if(actionBar!=null){
             actionBar.hide();
@@ -107,6 +117,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.keyEqual:
                 ans.setText(String.valueOf(numberStack.calculate(operatorStack.toReversePolishExpression(ans.getText().toString()))));
+                break;
+            case R.id.deleteButton:
+                if(!ans.getText().toString().isEmpty())
+                    ans.setText(ans.getText().subSequence(0,ans.getText().length()-1));
+                break;
+            case R.id.clearButton:
+                ans.setText("");
+                break;
         }
     }
 }
