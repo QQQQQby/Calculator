@@ -14,16 +14,39 @@
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:gravity="center_vertical|right"
-        android:text="123"
         android:textSize="@dimen/expressionFont"
         android:textColor="@color/White"
+        android:lines="2"
         android:id="@+id/displayExpression"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/imageBtHeight"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:scaleType="fitCenter"
+            android:src="@drawable/clear_button"
+            android:id="@+id/clearButton" />
+
+        <ImageButton
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/imageBtHeight"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:scaleType="fitCenter"
+            android:src="@drawable/delete_button" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="5">
+        android:layout_weight="2">
 
         <LinearLayout
             android:layout_width="match_parent"
